@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:x_penditure/widgets/tasks_list.dart';
 import 'package:x_penditure/Screens/add_task_screen.dart';
+import 'package:x_penditure/Models/task.dart';
 
-class TaskScreen extends StatelessWidget {
-  Widget buildBottomSheet;
+class TaskScreen extends StatefulWidget {
+  // Widget buildBottomSheet;
+  @override
+  _TaskScreenState createState() => _TaskScreenState();
+}
+
+class _TaskScreenState extends State<TaskScreen> {
+  List<Task> tasks = [
+    Task(name: 'This is Milk'),
+    Task(name: 'This is Cow'),
+    Task(name: 'This is Goat'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +28,12 @@ class TaskScreen extends StatelessWidget {
             builder: (context) {
               return Wrap(
                 children: [
-                  AddTaskScreen(),
+                  AddTaskScreen((newTaskTitle) {
+                    setState(() {
+                      tasks.add(Task(name: newTaskTitle));
+                    });
+                    Navigator.pop(context);
+                  }),
                 ],
               );
             },
@@ -60,7 +76,7 @@ class TaskScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '12 Tasks',
+                  '${tasks.length} Tasks',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -79,7 +95,7 @@ class TaskScreen extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(tasks),
             ),
           ),
         ],
