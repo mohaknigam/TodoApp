@@ -17,12 +17,7 @@ class TaskScreen extends StatelessWidget {
             builder: (context) {
               return Wrap(
                 children: [
-                  AddTaskScreen((newTaskTitle) {
-                    // setState(() {
-                    //   tasks.add(Task(name: newTaskTitle));
-                    // });
-                    Navigator.pop(context);
-                  }),
+                  AddTaskScreen(),
                 ],
               );
             },
