@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
-  List<Task> _tasks = [
-    Task(name: 'This is Milk'),
-    Task(name: 'This is Cow'),
-    Task(name: 'This is Goat'),
-  ];
+  List<Task> _tasks = [];
 
   UnmodifiableListView<Task> get tasks {
     return UnmodifiableListView(_tasks);

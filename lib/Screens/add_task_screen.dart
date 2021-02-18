@@ -8,7 +8,7 @@ class AddTaskScreen extends StatelessWidget {
     String newTaskTitle;
 
     return Container(
-      height: 390,
+      height: 420,
       color: Color(0xff757575),
       child: Container(
         padding: EdgeInsets.only(
